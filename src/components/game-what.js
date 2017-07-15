@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function What() {
+export default function What(props) {
     return (
 
         <div className="directions">
@@ -15,11 +15,11 @@ export default function What() {
                                 <li>3. You will <strong>get feedback</strong> on how close ("hot") or far ("cold") your guess is.</li>
                             </ul>
                             <p>So, Are you ready?</p>
-                            <a className="close" href="#">Got It!</a>
+                            <button className="close" onClick={props.onClick}>Got It!</button>
                         </div>
                 </div>
             </div>
         </div>
-        
+
     );
 }
