@@ -39,6 +39,7 @@ export default class Game extends React.Component {
      render() {
 
        //conditions to capture both states
+       //shows 'What' the game is about and 'Starts' the game
        if (this.state.show === 'directions') {
             return <What onClick={e => this.tooglegame()}/>;
         }

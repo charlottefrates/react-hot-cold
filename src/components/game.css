@@ -19,18 +19,18 @@
 }
 
 html {
+     margin-top: 1%;
 	width: 100%;
 	height: 100%;
 	background-color: #394264;
 }
 
-body {
+.overlay {
     display: block;
 	position: relative;
-	width: 98%;
-	height: 96%;
 	margin: 0.8em auto;
     padding-top: 15%;
+    padding-bottom: 18%;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	background-color: #e74c3c;
 	text-align: center;
@@ -45,15 +45,17 @@ body {
 
 
 .content {
-        color: #fff;
-        background: #e74c3c;
-        position: relative;
-        height: auto;
-        width: 600px;
-        border-radius: 3px;
-        top: 15%;
-        margin: auto auto;
-        border: 1px solid rgba(0,0,0,0.1);
+    color: #fff;
+background: #e74c3c;
+position: relative;
+height: auto;
+width: 600px;
+border-radius: 3px;
+top: 15%;
+margin-left: auto;
+margin-right: auto;
+margin-top: -9%;
+border: 1px solid rgba(0,0,0,0.1);
     }
 
     .content h3 {
@@ -94,11 +96,12 @@ body {
     line-height: 1.5em;
 }
 
-.content > div a {
+.content > div button {
     font-size: 0.8em;
     background: #1F253D;
     color: #95a5a6;
     padding: 0.5em 2em;
     margin-bottom: 50px;
     border-radius: 3px;
+    border: none;
 }
