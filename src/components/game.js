@@ -16,37 +16,43 @@ export default class Game extends React.Component {
           super(props);
           // have current state to show directions
           this.state = {
-               show: 'directions'
+               show: 'directions',
+               guess: ''
           }
      }
 
      //function to change state
-  tooglegame(){
-        this.setState({
-            show: 'game'
-        });
-    }
+     tooglegame() {
+          this.setState({
+               show: 'game'
+          });
+     }
 
-    //function to change state again
-  showInfoAgain(){
-    this.setState({
-            show: 'directions'
-        });
+     //function to change state again
+     showInfoAgain() {
+          this.setState({
+               show: 'directions'
+          });
 
-  }
+     }
 
 
      render() {
 
-       //conditions to capture both states
-       //shows 'What' the game is about and 'Starts' the game
-       if (this.state.show === 'directions') {
-            return <What onClick={e => this.tooglegame()}/>;
-        }
-        else if (this.state.show === 'game') {
-            return <Start onClick={e => this.showInfoAgain()}/>;
-        }
+          //conditions to capture both states
+          //shows 'What' the game is about and 'Starts' the game
+          if (this.state.show === 'directions') {
+               return <What onClick = {
+                    e => this.tooglegame()
+               }
+               />;
+          } else if (this.state.show === 'game') {
+               return <Start onClick = {
+                    e => this.showInfoAgain()
+               }
+               />;
+          }
 
-    }
+     }
 
 }
