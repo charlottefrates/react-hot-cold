@@ -4,8 +4,6 @@ import Header from './game-header';
 
 import Feedback from './game-feedback';
 
-import GameForm from './game-form';
-
 import Guess from './game-guess';
 
 import List from './game-list';
@@ -13,18 +11,63 @@ import List from './game-list';
 // imports styling
 import './game-main.css';
 
-export default function Start(props) {
-    return (
-        <div className="mainGame">
-            <Header />
-            <h1> Hot or Cold? </h1>
-            <section className="game">
-                <Feedback />
-                <GameForm onChange={guess => this.setState({guess})} />
-                <Guess />
-                <List />
-            </section>
-        </div>
+export default class Start extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            guesses: [],
+            feedback: 'Make your guess!',
+            correctAnswer: Math.floor(Math.random() * 100) + 1,
+        };
+    }
 
-    );
+    guess(guess) {
+        guess = parseInt(guess, 10);
+        if (isNaN(guess)) {
+            this.setState({
+                feedback: 'Please enter a valid number'
+            });
+            return;
+        }
+
+        const difference = Math.abs(guess - this.state.correctAnswer);
+
+        //shows the feedback text based on value entered
+        let feedback;
+        if (difference >= 50) {
+            feedback = 'You are Ice Cold...';
+        }
+        else if (difference >= 30) {
+            feedback = 'You are Cold...';
+        }
+        else if (difference >= 10) {
+            feedback = 'You are Warm';
+        }
+        else if (difference >= 1) {
+            feedback = 'You are Hot!';
+        }
+        else {
+            feedback = 'You RIGHT, YAY!';
+        }
+
+        //updates current state
+        this.setState({
+            feedback,
+            guesses: [...this.state.guesses, guess]
+        });
+    }
+
+    render() {
+        return (
+            <div className="mainGame">
+                <Header />
+                <section className="game">
+                    <Feedback feedback={this.state.feedback} onGuess={(guess) => this.guess(guess)}/>
+                    <Guess count={this.state.guesses.length}/>
+                    <List guesses={this.state.guesses}/>
+                </section>
+            </div>
+
+        );
+    }
 }

@@ -1,7 +1,12 @@
 import React from 'react';
 
-export default function Feedback() {
+import GameForm from './game-form';
+
+export default function Feedback(props) {
     return (
-       <h2 id="feedback">Make your Guess!</h2>
-    );
+      <div>
+       <h2 id="feedback">{props.feedback}</h2>
+       <GameForm onGuess={props.onGuess} />
+       </div>
+   )
 }
