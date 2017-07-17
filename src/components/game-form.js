@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default class GameForm extends React.Component {
+    //uncontrolled input
     onGuess(event) {
         event.preventDefault();
         if (this.props.onGuess) {
