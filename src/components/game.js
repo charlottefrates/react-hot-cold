@@ -20,6 +20,8 @@ export default class Game extends React.Component {
           }
      }
 
+
+
      //function to change state
      tooglegame() {
           this.setState({
@@ -39,15 +41,11 @@ export default class Game extends React.Component {
           //conditions to capture both states
           //shows 'What' the game is about and 'Starts' the game
           if (this.state.show === 'directions') {
-               return <What onClick = {
-                    e => this.tooglegame()
-               }
-               />;
+               //shows directions for the game
+               return <What onClick = {e => this.tooglegame()}/>;
           } else if (this.state.show === 'game') {
-               return <Start onClick = {
-                    e => this.showInfoAgain()
-               }
-               />;
+               //shows main game component
+               return <Start />;
           }
 
      }
