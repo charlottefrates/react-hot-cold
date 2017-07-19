@@ -24,6 +24,7 @@ export default class Start extends React.Component {
     }
 
     newGame() {
+
 		this.setState({
 			guesses: [],
 			feedback: 'Guess a number!',
@@ -59,7 +60,7 @@ export default class Start extends React.Component {
             feedback = 'You are Hot!';
         }
         else {
-            feedback = 'You RIGHT, YAY!';
+            feedback = 'You got it RIGHT, YAY!';
         }
 
         //updates current state
