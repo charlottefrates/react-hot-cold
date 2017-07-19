@@ -20,6 +20,7 @@ export default class Start extends React.Component {
             feedback: 'Make your guess!',
             correctAnswer: Math.floor(Math.random() * 100) + 1,
         };
+
     }
 
     newGame() {
@@ -41,6 +42,7 @@ export default class Start extends React.Component {
         }
 
         const difference = Math.abs(guess - this.state.correctAnswer);
+
 
         //shows the feedback text based on value entered
         let feedback;
@@ -65,12 +67,21 @@ export default class Start extends React.Component {
             feedback,
             guesses: [...this.state.guesses, guess]
         });
+
+        if(feedback === 'You got it RIGHT, YAY!'){
+            //code before the pause
+            setTimeout(function(){
+                //do what you need here
+                alert('Click "New Game" if you want to play again')
+            }, 800);
+
+        }
     }
 
     render() {
         return (
             <div className="mainGame" >
-                <Header onClick={e => this.newGame()}/>
+                <Header onClick={e => this.newGame()} handler = {this.props.handler}/>
                 <section className="game">
                     <Feedback feedback={this.state.feedback} onGuess={(guess) => this.guess(guess)}/>
                     <Guess count={this.state.guesses.length}/>

@@ -18,9 +18,17 @@ export default class Game extends React.Component {
           this.state = {
                show: 'directions',
           }
+
+          //Parent bind property
+          this.handler = this.handler.bind(this);
      }
 
-
+     handler(e) {
+        e.preventDefault()
+        this.setState({
+          show: 'directions'
+        })
+      }
 
      //function to change state
      tooglegame() {
@@ -38,14 +46,15 @@ export default class Game extends React.Component {
      }
 
      render() {
+
           //conditions to capture both states
           //shows 'What' the game is about and 'Starts' the game
           if (this.state.show === 'directions') {
                //shows directions for the game
                return <What onClick = {e => this.tooglegame()}/>;
           } else if (this.state.show === 'game') {
-               //shows main game component
-               return <Start onClick={e => this.showInfoAgain()}/>;
+               //shows main game component and added bound handler
+               return <Start onClick={e => this.showInfoAgain()} handler = {this.handler}/>;
           }
 
      }

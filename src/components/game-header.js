@@ -25,12 +25,12 @@ export default function Header(props) {
 
                  <nav>
      				<ul className="clearfix">
-                              {/*
-                                    <li>
-                                   <button class="what" href="#">What ?</button>
+
+                              <li>
+                                   <button className="what" href="#"onClick = {props.handler}> What ? </button>
 
                               </li>
-                              */}
+
 
      					<li>
                                    <button className="new" onClick={props.onClick} > + New Game </button>
