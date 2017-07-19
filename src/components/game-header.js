@@ -1,8 +1,6 @@
 import React from 'react';
 
 
-//imports What module to give information about the game
-import What from './game-what';
 /*
 export default function Header(props) {
     return (
@@ -27,6 +25,12 @@ export default function Header(props) {
 
                  <nav>
      				<ul className="clearfix">
+                              {/*
+                                    <li>
+                                   <button class="what" href="#">What ?</button>
+
+                              </li>
+                              */}
 
      					<li>
                                    <button className="new" onClick={props.onClick} > + New Game </button>

@@ -45,7 +45,7 @@ export default class Game extends React.Component {
                return <What onClick = {e => this.tooglegame()}/>;
           } else if (this.state.show === 'game') {
                //shows main game component
-               return <Start />;
+               return <Start onClick={e => this.showInfoAgain()}/>;
           }
 
      }

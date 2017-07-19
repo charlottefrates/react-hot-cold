@@ -67,9 +67,9 @@ export default class Start extends React.Component {
         });
     }
 
-    render(props) {
+    render() {
         return (
-            <div className="mainGame">
+            <div className="mainGame" >
                 <Header onClick={e => this.newGame()}/>
                 <section className="game">
                     <Feedback feedback={this.state.feedback} onGuess={(guess) => this.guess(guess)}/>
