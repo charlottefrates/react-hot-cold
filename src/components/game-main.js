@@ -12,6 +12,7 @@ import List from './game-list';
 // imports styling
 import './game-main.css';
 
+/* OPTION 1 WITHOUT REDUX
 export default class Start extends React.Component {
     constructor(props) {
         super(props);
@@ -93,3 +94,18 @@ export default class Start extends React.Component {
         );
     }
 }
+
+*/
+
+export default function Game(props) {
+    return (
+        <div>
+          <Header onClick={e => this.newGame()} handler = {this.props.handler}/>
+           <section className="game">
+               <Feedback />
+              <Guess />
+             <List />
+           </section>
+        </div>
+    );
+};

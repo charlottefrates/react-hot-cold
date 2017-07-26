@@ -1,22 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import {newGame} from '../actions';
 
 
-/*
-export default function Header(props) {
-    return (
-        <header>
-            <nav>
-				<ul className="clearfix">
-					<li> <button className="what" >What ?</button> </li>
-					<li> <button className="new" >+ New Game</button> </li>
-				</ul>
-			</nav>
-            <h1> Hot or Cold? </h1>
-        </header>
-    );
-}
-
-*/
+/* OPTION 1 without redux
 export default function Header(props) {
 
 
@@ -44,5 +32,38 @@ export default function Header(props) {
          );
 
 
-
 }
+*/
+
+export class Header extends React.Component {
+    newGame(event) {
+        event.preventDefault();
+        this.props.dispatch(newGame());
+    }
+
+    toggleDirections(event) {
+        event.preventDefault();
+        this.props.dispatch(toggleDirections());
+    }
+
+    render() {
+        return (
+            <nav>
+                <ul className="clearfix">
+                    <li>
+                        <a className="what" href="#" onClick = {props.handler}>
+                            What?
+                        </a>
+                    </li>
+                    <li>
+                        <a className="new" href="#" onClick={e => this.newGame(e)}>
+                            + New Game
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        );
+    }
+};
+
+export default connect()(Header)
