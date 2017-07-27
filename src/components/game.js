@@ -51,10 +51,10 @@ export default class Game extends React.Component {
           //shows 'What' the game is about and 'Starts' the game
           if (this.state.show === 'directions') {
                //shows directions for the game
-               return <What onClick = {e => this.tooglegame()}/>;
+               return <What onClick={e => this.tooglegame()}/>;
           } else if (this.state.show === 'game') {
                //shows main game component and added bound handler
-               return <Start onClick={e => this.showInfoAgain()} handler = {this.handler}/>;
+               return <Start onClick={e => this.showInfoAgain()} handler={this.handler}/>;
           }
 
      }

@@ -97,10 +97,10 @@ export default class Start extends React.Component {
 
 */
 
-export default function Game(props) {
+export default function Game() {
     return (
         <div>
-          <Header onClick={e => this.newGame()} handler = {this.props.handler}/>
+          <Header />
            <section className="game">
                <Feedback />
               <Guess />

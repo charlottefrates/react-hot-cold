@@ -1,15 +1,17 @@
 import {
     NEW_GAME,
     MAKE_GUESS,
+    TOGGLE_INFO_MODAL
 } from './actions';
 
 const initialState = {
     guesses: [],
     feedback: 'Make your guess!',
     correctAnswer: Math.round(Math.random() * 100),
+    showInfoModal: false
 };
 
-export const GameState = (state, action) => {
+export default (state, action) => {
     state = state || initialState;
     if (action.type === NEW_GAME) {
         state = Object.assign({
@@ -52,6 +54,12 @@ export const GameState = (state, action) => {
             guesses: state.guesses.concat(action.guess)
         });
 
+        return state;
+    }
+    else if (action.type === TOGGLE_INFO_MODAL) {
+         state = Object.assign({}, state, {
+             showInfoModal: !state.showInfoModal
+        });
         return state;
     }
     return state;
