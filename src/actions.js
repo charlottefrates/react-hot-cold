@@ -13,8 +13,8 @@ export const makeGuess = (guess) => ({
     guess
 });
 
-
+//got from results
 export const TOGGLE_INFO_MODAL = 'TOGGLE_INFO_MODAL';
-export const toggleInfoModal = () => ({
+export const togglegame = () => ({
     type: TOGGLE_INFO_MODAL
 });

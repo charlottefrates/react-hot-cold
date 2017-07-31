@@ -1,10 +1,9 @@
 import React from 'react';
-//import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 
-//import {newGame} from '../actions';
+import {newGame,togglegame} from '../actions';
 
-
-
+/*
 export default function Header(props) {
 
 
@@ -33,13 +32,19 @@ export default function Header(props) {
 
 
 }
+*/
 
-/*
+
 export class Header extends React.Component {
     newGame(event) {
         event.preventDefault();
         this.props.dispatch(newGame());
     }
+
+    //function to change state
+    togglegame() {
+         this.props.dispatch(togglegame());
+     }
 
 
     render(props) {
@@ -47,7 +52,7 @@ export class Header extends React.Component {
             <nav>
                 <ul className="clearfix">
                     <li>
-                        <a className="what" href="#" onClick = {props.handler}>
+                        <a className="what" href="#" onClick ={e => this.togglegame()}>
                             What?
                         </a>
                     </li>
@@ -62,5 +67,10 @@ export class Header extends React.Component {
     }
 };
 
-export default connect()(Header)
-*/
+const mapStateToProps = state => ({
+     //SHOULD NOT BE FIXED BUT a variable
+     showGame:state.showGame
+
+});
+
+export default connect(mapStateToProps)(Header)

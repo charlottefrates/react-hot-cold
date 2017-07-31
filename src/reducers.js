@@ -8,17 +8,17 @@ const initialState = {
     guesses: [],
     feedback: 'Make your guess!',
     correctAnswer: Math.round(Math.random() * 100),
-    showInfoModal: false
+    showGame: false
 };
 
 export default (state, action) => {
+
     state = state || initialState;
+
     if (action.type === NEW_GAME) {
-        state = Object.assign({
-        }, initialState, {
-            correctAnswer: action.correctAnswer
-        });
-        return state;
+        console.log(initialState);
+        console.log(state);
+        return { ...initialState, correctAnswer: action.correctAnswer,showGame:true };
     }
     else if (action.type === MAKE_GUESS) {
         const guess = parseInt(action.guess, 10);
@@ -33,6 +33,7 @@ export default (state, action) => {
         const difference = Math.abs(guess - state.correctAnswer);
 
         let feedback;
+
         if (difference >= 50) {
             feedback = 'You\'re Ice Cold...';
         }
@@ -57,10 +58,17 @@ export default (state, action) => {
         return state;
     }
     else if (action.type === TOGGLE_INFO_MODAL) {
+        alert(state.showGame);
+        //Note: ... is called spread operator remember!
+        console.log({...state, showGame: !state.showGame})
+        return { ...state, showGame: !state.showGame }
+        /*
          state = Object.assign({}, state, {
-             showInfoModal: !state.showInfoModal
+             showGame: !state.showGame
         });
+
         return state;
+        */
     }
     return state;
 };
